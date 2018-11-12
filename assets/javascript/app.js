@@ -3,7 +3,7 @@
 //Ajax call to pull gifs
 //Create new buttons by user input, loop
 $(document).ready(function () {
-    var topics = ["Friends", "Parks and Recreation", "Brooklyn 99", "Seinfeld", "Psych", "New Girl"];
+    var topics = ["Friends", "Parks and Recreation", "Brooklyn 99", "Psych", "New Girl"];
     console.log(topics[1])
     //GIF function
     $(document).on("click", ".showBtn", function () {
@@ -21,13 +21,14 @@ $(document).ready(function () {
             var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
-                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                if (results[i].rating !== "r") {
                     //Create div
                     var showDiv = $("<div>");
                     //variable to hold rating
                     var rating = results[i].rating;
                     //create p tag
                     var p = $("<p>").text("Rating: " + rating);
+                    p.addClass("rating");
                     var image = $("<img>");
                     image.addClass("gif");
                     image.attr("src", results[i].images.fixed_height_still.url);
@@ -49,20 +50,8 @@ $(document).ready(function () {
             $(".gif").on("click", function () {
                 var src = $(this).attr("data-animate");
                 $(this).attr("src", src);
-            // },
-            // function(){
-            //     var src = $(this).attr("data-still");
-            //     $(this).attr("src", src);
+            
             })
-
-            // for (var i = 0; i < animatedGIFArray.length; i++) {
-            //     var gifAnimated = $("<img>");
-            //     gifAnimated.attr("src", results[i].images.original.url);
-            //     gifAnimated.addClass("animated");
-            //     gifAnimated.attr("data-animated");
-
-            //     animatedGIFArray.push(gifAnimated);
-            // }
 
         });
 
@@ -72,6 +61,7 @@ $(document).ready(function () {
 
 
 
+    
 
     //Button loop
     function renderButtons() {

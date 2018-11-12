@@ -5,5 +5,26 @@
 body {
     height: 100%;
     font-family: 'Quicksand', sans-serif;
-    background-color: aqua;
+    background-image: url(../images/plume.png);
+}
+
+.title {
+    color: oldlace;
+}
+
+.label {
+    color: oldlace;
+}
+
+.showBtn {
+    padding: 5px;
+    margin: 5px;
+}
+
+#show-form {
+    margin: 10px;
+}
+
+.rating {
+    color: oldlace;
 }
